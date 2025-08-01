@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const PUZZLE_SIZE = 3;
     const TOTAL_PIECES = PUZZLE_SIZE * PUZZLE_SIZE;
     const EMPTY_INDEX = TOTAL_PIECES - 1;
-    const PUZZLE_IMAGE_PATH = 'puzzle-image.jpg'; // Caminho da imagem do puzzle
+    const PUZZLE_IMAGE_PATH = 'foto5'; // Caminho da imagem do puzzle
 
     if (puzzleBoard) {
         function initPuzzle() {
