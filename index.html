@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História | 1 Ano de Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gift-wrapper">
+        <div class="gift-box">
+            <div class="lid"></div>
+            <div class="box"></div>
+            <div class="ribbon-horizontal"></div>
+            <div class="ribbon-vertical"></div>
+            <div class="tag">Para: <span>Aline</span></div>
+        </div>
+        <p class="instructions">Clique no presente para abrir</p>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/papoulas.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div class="custom-cursor"></div>
+    <div class="floating-hearts" id="hearts-container"></div>
+
+    <button id="mute-btn" class="mobile-only" aria-label="Mute/Unmute Music">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
+    <header>
+        <h1>Nossa História</h1>
+        <p>Um ano de momentos inesquecíveis e amor infinito</p>
+    </header>
+
+    <main>
+        <section id="timeline">
+            <h2>Linha do Tempo</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <h3>08/12/2023</h3>
+                    <p>O dia que nos conheçemos</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>15/02/2024</h3>
+                    <p>Nosso primeiro beijo</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>10/05/2024</h3>
+                    <p>Dia enque voltamos a nos falar</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>05/08/2024</h3>
+                    <p>Primeiro aniversario seu que comemoramos juntos</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>24/08/2024</h3>
+                    <p>o dia do pedido</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>12/06/2025</h3>
+                    <p>Primeiro dia dos namorados</p>
+                </div>
+                    <div class="timeline-item">
+                    <h3>24/08/2025</h3>
+                    <p>HOJE!!
+                        PRIMEIRO ANO DE NAMORO!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="gallery-container">
+    <div class="gallery-item" data-media-type="image" data-full-src="assets/foto1.jpg">
+        <img src="assets/foto1.jpg" alt="Tatuagens">
+        <p class="caption">"Tatuagens"</p>
+    </div>
+    <div class="gallery-item" data-media-type="image" data-full-src="assets/foto2.jpg">
+        <img src="assets/foto2.jpg" alt="Formatura">
+        <p class="caption">Formatura</p>
+    </div>
+    <div class="gallery-item" data-media-type="image" data-full-src="assets/foto3.jpg">
+        <img src="assets/foto3.jpg" alt="Brigadeiro com batata">
+        <p class="caption">Brigadeiro com batata</p>
+    </div>
+    <div class="gallery-item" data-media-type="image" data-full-src="assets/foto4.jpg">
+        <img src="assets/foto4.jpg" alt="24/08">
+        <p class="caption">24/08</p>
+    </div>
+    <div class="gallery-item" data-media-type="video" data-full-src="assets/video1.mp4">
+        <div class="video-thumbnail">
+            <img src="assets/video1.mp4" alt="Thumbnail do vídeo">
+            <div class="play-icon"></div>
+        </div>
+        <p class="caption">Brigadeiro</p>
+    </div>
+    <div class="gallery-item" data-media-type="image" data-full-src="assets/foto7.webp">
+        <img src="assets/foto7.webp" alt="ano novo">
+        <p class="caption">ano novo</p>
+    </div>
+</div>
+        </section>
+
+        <!-- Lightbox para a galeria principal (será preenchido via JS) -->
+        <div id="lightbox-overlay" class="lightbox">
+            <div class="lightbox-content">
+                <!-- Conteúdo dinâmico -->
+            </div>
+        </div>
+
+        <section id="puzzle-section">
+            <h2>Nosso Quebra-Cabeça</h2>
+            <div class="puzzle-container">
+                <div id="puzzle-board"></div>
+                <div class="puzzle-buttons">
+                    <button id="shuffle-btn">Embaralhar</button>
+                    <button id="solve-btn">Mostrar Solução</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="time-counter">
+            <h2>Nosso Tempo Juntos</h2>
+            <div class="counter-container">
+                <div class="counter-box">
+                    <span id="years">0</span>
+                    <span class="label">Anos</span>
+                </div>
+                <div class="counter-box">
+                    <span id="months">0</span>
+                    <span class="label">Meses</span>
+                </div>
+                <div class="counter-box">
+                    <span id="days">0</span>
+                    <span class="label">Dias</span>
+                </div>
+                <div class="counter-box">
+                    <span id="hours">0</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="counter-box">
+                    <span id="minutes">0</span>
+                    <span class="label">Minutos</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="secret-letters">
+            <h2>Mensagens Secretas</h2>
+            <div class="password-system">
+                <div class="input-group">
+                    <input type="password" class="password-input" placeholder="Digite uma senha especial..." aria-label="Digite a senha secreta">
+                    <button class="password-btn">Acessar</button>
+                </div>
+                <div class="secret-message-container" id="secretMessage" role="alert" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="secret-gallery-message">
+        <div class="secret-message-overlay">
+            <div class="secret-message-content">
+                <h3>Para a Mulher Mais Incrível do Mundo</h3>
+                <p>Você é minha fonte de alegria e inspiração. Cada momento ao seu lado é um presente que guardo no coração.</p>
+                <p class="redirect-message">Abrindo nosso tesouro de memórias...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Meu amor por você é como as estrelas - infinito, brilhante e impossível de contar.<br><br>Feliz 1 ano, amor da minha vida!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
