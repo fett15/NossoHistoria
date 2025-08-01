@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const PUZZLE_SIZE = 3;
     const TOTAL_PIECES = PUZZLE_SIZE * PUZZLE_SIZE;
     const EMPTY_INDEX = TOTAL_PIECES - 1;
-    const PUZZLE_IMAGE_PATH = 'puzzle-image.jpg'; // Caminho da imagem do puzzle
+    const PUZZLE_IMAGE_PATH = 'assets/puzzle-image.jpg'; // Caminho da imagem do puzzle
 
     if (puzzleBoard) {
         function initPuzzle() {
@@ -262,39 +262,105 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCounter();
     setInterval(updateCounter, 1000);
 
-    // Sistema de senhas
-    const passwordInput = document.querySelector('.password-input');
-    const passwordBtn = document.querySelector('.password-btn');
+    // Sistema de senhas atualizado
+const passwordInput = document.querySelector('.password-input');
+const passwordBtn = document.querySelector('.password-btn');
+const secretMessages = document.getElementById('secretMessage');
+const secretGallery = document.getElementById('secret-gallery');
 
-    if (passwordBtn && passwordInput && secretMessage && secretGalleryMessage) {
-        passwordBtn.addEventListener('click', function() {
-            const password = passwordInput.value.toLowerCase().trim();
-
-            if (password === "amor") {
-                secretMessage.innerHTML = `<p>Você descobriu o segredo! Eu te amo mais que tudo! ❤️</p>`;
-                secretMessage.style.display = 'block';
-            } else if (password === "autoestima") {
-                secretMessage.innerHTML = `<p>Você é a pessoa mais incrível que já conheci! Sua autoestima ilumina meu mundo e me inspira todos os dias.</p>`;
-                secretMessage.style.display = 'block';
-
-                secretGalleryMessage.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Impede o scroll do body
-                setTimeout(() => {
-                    window.location.href = 'galeria-secreta.html';
-                }, 3000);
-
-            } else {
-                secretMessage.innerHTML = '<p>Dica: É o que eu sinto por você todos os dias...</p>';
-                secretMessage.style.display = 'block';
-            }
-
-            passwordInput.value = '';
-        });
-
-        passwordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') passwordBtn.click();
-        });
+passwordBtn.addEventListener('click', function() {
+    const password = passwordInput.value.toLowerCase().trim();
+    
+    // Mensagens secretas
+    const secretMessages = {
+    "autoestima": {
+        message: "Você é a pessoa mais incrível que já conheci! Sua autoestima ilumina meu mundo.",
+        unlockGallery: true
+    },
+    "amor": {
+        message: "Você descobriu o segredo! Eu te amo mais que tudo! ❤️",
+        unlockGallery: false
+    },
+    "beijo": {
+        message: "Lembro do nosso primeiro beijo como se fosse hoje. Foi mágico!",
+        unlockGallery: false
+    },
+    "mudança": {
+        message: "Obrigado por estar comigo naquela fase difícil. Você me deu forças quando eu mais precisei. 🤗",
+        unlockGallery: false
+    },
+    "1234": {
+        message: "Essa era fácil! Mas o que importa é que você sabe que eu te amo muito, mesmo quando não digo. 💕",
+        unlockGallery: false
+    },
+    "undertale": {
+        message: "You’re filled with Determination… and eu sou preenchido com amor por você.",
+        unlockGallery: false
+    },
+    "aquelescaras": {
+        message: "Entre piadas internas e vídeos bobos, 'Aqueles Caras' viraram parte da nossa história. E rir com você… é uma das minhas partes favoritas.",
+        unlockGallery: false
+    },
+    "hotdog": {
+        message: "Você me conquistou com carinho… e cachorro-quente. Eu nunca mais fui o mesmo depois daquela noite.",
+        unlockGallery: false
+    },
+    "jardim": {
+        message: "Já dizia o Jotapê:\n'Cê não acreditaria no amor se conhecesse os bastidores…\nEu vim do Balde de Lixo e vou para o Jardim das Flores.'\n\nE é isso que viver com você me ensinou — que mesmo quem vem do caos pode florescer. Você me mostrou que amor não precisa ser perfeito, só precisa ser verdadeiro. Hoje, por você, eu sou mais forte. E mais flor também. 🌷",
+        unlockGallery: false
+    },
+    "abraco": {
+        message: "Seu abraço é minha casa. E mesmo quando não estou nele, é pra lá que meu coração corre.",
+        unlockGallery: false
+    },
+    "milagre": {
+        message: "Você foi o milagre que chegou quando eu achava que tudo ia desmoronar.",
+        unlockGallery: false
+    },
+    "futuro": {
+        message: "Eu ainda não sei como vai ser o amanhã, mas tenho certeza de uma coisa: eu quero viver cada pedacinho com você.",
+        unlockGallery: false
+    },
+    "promessa": {
+        message: "Prometo nunca esquecer de te lembrar o quanto você é amada.",
+        unlockGallery: false
+    },
+    "sónosso": {
+        message: "Tem coisas que são só nossas… e nem o mundo inteiro entenderia.",
+        unlockGallery: false
+    },
+    "cores": {
+        message: "Você trouxe cor pra minha vida onde só havia cinza.",
+        unlockGallery: false
     }
+};
+    // Verifica se a senha digitada corresponde a alguma mensagem secreta
+
+    if (secretMessages[password]) {
+        secretMessage.innerHTML = `<p>${secretMessages[password].message}</p>`;
+        secretMessage.style.display = 'block';
+        
+        // Se for a senha correta, mostra a galeria secreta
+        if (password === "autoestima" && secretGallery) {
+            secretGallery.style.display = 'block';
+            setTimeout(() => {
+                secretGallery.scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        }
+    } else {
+        secretMessage.innerHTML = '<p>Senha incorreta! Tente lembrar de algo especial entre nós...</p>';
+        secretMessage.style.display = 'block';
+    }
+    
+    passwordInput.value = '';
+});
+
+// Também funciona com Enter
+passwordInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        passwordBtn.click();
+    }
+});
 
     // Animação ao rolar
     const sections = document.querySelectorAll('section');
